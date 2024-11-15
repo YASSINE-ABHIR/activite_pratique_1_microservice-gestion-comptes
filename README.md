@@ -1,85 +1,45 @@
 # Microservice Gestion Comptes - Activité Pratique N°1
 
-Ce projet est une **activité pratique** portant sur le développement d'un microservice de gestion de comptes bancaires. Il a été conçu pour appliquer les concepts de Spring Boot, RESTful API, et GraphQL.
+Ce projet est une **activité pratique** pour développer un microservice de gestion des comptes bancaires. Il met en œuvre les concepts fondamentaux de Spring Boot, JPA, GraphQL, et Swagger.
 
-# Microservice de Gestion des Comptes
-
-## Description
-
-Ce projet est un microservice de gestion des comptes bancaires développé en utilisant **Spring Boot**. Il inclut les fonctionnalités de création, consultation, mise à jour, et suppression de comptes via une API Rest, avec une persistance des données gérée par **Spring Data JPA** et **H2**. Le projet inclut également une exposition des API via **Spring Data Rest**, des **projections**, et une intégration de **GraphQL** pour des requêtes avancées.
+---
 
 ## Fonctionnalités
 
-- **Création d'un microservice en Spring Boot**
-- Gestion des comptes avec persistance JPA
-- API Rest exposée via Spring Data Rest et des projections
-- Intégration de **GraphQL**
-- Documentation et test des API avec Swagger
-- Tests des endpoints avec Postman
+- **Création d'un microservice avec Spring Boot** : Développement selon les principes d'architecture microservices.
+- **Gestion des comptes avec persistance JPA** : CRUD complet sur les entités "Compte".
+- **API REST exposée via Spring Data Rest et des projections** : Utilisation de Spring Data pour automatiser l'exposition des données.
+- **Intégration de GraphQL** : Permet des requêtes et mutations flexibles sur les comptes.
+- **Documentation et test des API avec Swagger** : Documentation générée automatiquement pour tester et comprendre les endpoints REST.
+- **Tests des endpoints avec Postman** : Validation des API REST avec un client REST.
 
-## Prérequis
+---
 
-- **JDK 17+**
-- **Maven 3.8+**
-- **IDE** (IntelliJ, Eclipse, ou autre)
-- **Postman** (pour tester les API Rest)
+## Qu'est-ce qu'un microservice ?
 
-## Dépendances utilisées
+Un **microservice** est une architecture logicielle où une application est divisée en plusieurs petits services indépendants. Chaque service est conçu pour remplir une fonction spécifique, est déployé de manière autonome, et communique avec d'autres services via des protocoles légers (comme HTTP/REST, ou GraphQL). Cette approche améliore la scalabilité, la résilience, et la facilité de maintenance des applications.
 
-- **Spring Boot Starter Web**: Pour créer le web service Rest.
-- **Spring Data JPA**: Pour la gestion de la persistance des données.
-- **H2 Database**: Base de données en mémoire pour les tests.
-- **Lombok**: Simplification du code en évitant le boilerplate.
-- **Spring Data Rest**: Pour exposer les API automatiquement.
-- **GraphQL**: Pour exposer les données via une API GraphQL.
-- **Swagger**: Pour documenter les API Rest.
+### Avantages des microservices :
 
-## Instructions d'installation et d'exécution
+- **Modularité** : Les services peuvent être développés, déployés et maintenus indépendamment.
+- **Flexibilité technologique** : Chaque service peut utiliser des technologies ou des frameworks adaptés à ses besoins.
+- **Évolutivité** : Permet de scaler uniquement les parties critiques de l'application.
+- **Résilience** : Une panne dans un microservice n'affecte pas nécessairement les autres.
 
-1. **Cloner le projet**:
+---
 
-   ```bash
-   git clone https://github.com/yassine/microservice-compte-management-springboot.git
-   cd microservice-compte-management-springboot
-   ```
+## Architecture du Microservice
 
-2. **Construire le projet**:
+Ce projet suit une architecture en couches avec les principes des microservices :
 
-   ```bash
-   mvn clean install
-   ```
+### 1. **Couche de Présentation**
+   - **API RESTful** : Fournit des endpoints pour les opérations CRUD via Spring Data Rest.
+   - **GraphQL API** : Permet une communication flexible avec les clients.
 
-3. **Exécuter le projet**:
+### 2. **Couche Métier**
+   - Contient la logique métier pour la gestion des comptes.
+   - Implémente les règles de validation et les calculs.
 
-   ```bash
-   mvn spring-boot:run
-   ```
-
-4. **Accéder à l'interface Swagger** pour tester les API:
-
-   - Ouvrez votre navigateur à l'adresse: `http://localhost:8080/swagger-ui/index.html`
-
-5. **Tester les API avec Postman**:
-   - Importez la collection Postman fournie dans le projet ou créez manuellement les requêtes REST.
-
-## Fonctionnalités techniques
-
-1. **Entité JPA `Compte`**: Représente un compte bancaire avec des attributs comme `id`, `balance`, `typeCompte`, etc.
-
-2. **DAO `CompteRepository`**: Interface Spring Data pour la gestion des accès aux données.
-
-3. **API Rest avec Spring Boot**:
-
-   - Création, mise à jour, suppression, et récupération des comptes via des endpoints REST.
-   - Documentation via Swagger.
-
-4. **Projections avec Spring Data Rest**: Expose des vues spécifiques des entités sans retourner tous les champs.
-
-5. **GraphQL API**: Permet des requêtes et mutations sur les comptes.
-
-6. **Tests DAO**: Validations et tests unitaires de la couche DAO.
-
-## Auteurs
-
-- **Hamza DAMIRI**
-- **II-BDCC, ENSET de Mohammedia**
+### 3. **Couche de Données**
+   - **JPA/Hibernate** : Pour la gestion des entités et des relations dans une base de données H2.
+   - **Spring Data JPA** : Simplifie les opérations CRUD sur les entités.
