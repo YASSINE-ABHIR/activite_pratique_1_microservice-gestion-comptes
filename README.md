@@ -14,6 +14,14 @@ Ce projet est une **activité pratique** pour développer un microservice de ges
 - **Tests des endpoints avec Postman** : Validation des API REST avec un client REST.
 
 ---
+## Dépendances utilisées
+Spring Boot Starter Web: Pour créer le web service Rest.
+Spring Data JPA: Pour la gestion de la persistance des données.
+H2 Database: Base de données en mémoire pour les tests.
+Lombok: Simplification du code en évitant le boilerplate.
+Spring Data Rest: Pour exposer les API automatiquement.
+GraphQL: Pour exposer les données via une API GraphQL.
+Swagger: Pour documenter les API Rest.
 
 ## Qu'est-ce qu'un microservice ?
 
